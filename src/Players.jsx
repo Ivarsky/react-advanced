@@ -1,20 +1,22 @@
-import { useEffect, useState } from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 
-function Players() {
-    const [players, setTeams] = useState([]);
+import withData from './withData';
 
-    useEffect(()=> {
-      fetch('https://www.balldontlie.io/api/v1/players')
-      .then(response => response.json())
-      .then(results => setTeams(results.data));
-    },[]);
+function Players({data: players, backgroundColor}) {
+    
 
   return <>
   <h2>Players</h2>
-  <ul>
+  <ul style={{backgroundColor}}>
     {players.map(player => <li key={player.id}>{player.first_name} {player.last_name}</li>)}
   </ul>
   </>
 }
 
-export default Players;
+const configuredWithData = withData({url:'https://www.balldontlie.io/api/v1/players'})
+
+const PlayersWithData = configuredWithData(Players)
+
+export default PlayersWithData;

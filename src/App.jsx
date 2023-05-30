@@ -4,8 +4,8 @@ import Teams from './Teams'
 function App() {
   return (
       <div>
-        <Teams/>
-        <Players/>
+        <Teams color='red'/>
+        <Players backgroundColor='lightblue'/>
       </div>
   )
 }
