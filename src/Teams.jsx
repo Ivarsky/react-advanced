@@ -1,21 +1,22 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 
-import withData from './withData';
+import FetchData from './FetchData';
 
-function Teams({data: teams, color}) {
-  return (<>
+function Teams({color}) {
+  return (
+  <>
   <h2>Teams</h2>
-  <ul style={{color}}>
-    {teams.map(team => <li key={team.id}>{team.full_name}</li>)}
-  </ul>
-  </>)
+  <FetchData //Recibe la url y la funcion render con data (teams)
+    url='https://www.balldontlie.io/api/v1/teams'>
+    {teams =>(
+      <ul style={{color}}>
+        {teams.map(team => (<li key={team.id}>{team.full_name}</li>)
+        )}
+      </ul>
+    )} 
+  </FetchData>
+  </>);
 }
 
-const configuredWithData = withData({
-  url:'https://www.balldontlie.io/api/v1/teams'
-})
-
-const TeamsWithData = configuredWithData(Teams);
-
-export default TeamsWithData;
+export default Teams;
