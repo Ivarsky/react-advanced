@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 
+import useFetch from './useFetch';
+
 function Teams({color}) {
   const {data: teams, isLoading} = useFetch({
     url: 'https://www.balldontlie.io/api/v1/teams',

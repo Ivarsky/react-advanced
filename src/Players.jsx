@@ -2,8 +2,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+import useFetch from './useFetch';
+
 function Players({backgroundColor}) {
-  const {data: isLoading, players} = useFetch({
+  const {data:players, isLoading} = useFetch({
     url: 'https://www.balldontlie.io/api/v1/players',
     initialState:[]
   })
